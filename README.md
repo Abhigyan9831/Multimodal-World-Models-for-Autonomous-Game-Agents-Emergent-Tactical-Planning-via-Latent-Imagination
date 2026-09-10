@@ -6,12 +6,12 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 
 ## Key Highlights
 
-- **Pure Model-Based RL (DreamerV3)**: Powered by a Recurrent State-Space Model (RSSM) featuring discrete categorical latents ($32 \times 32$) and GRU deterministic transitions.
+- **Pure Model-Based RL (DreamerV3)**: Build by a Recurrent State-Space Model featuring discrete categorical latents ($32 \times 32$) and GRU deterministic transitions.
 - **Multimodal Perception**: Fuses 128×128 first-person RGB camera feeds (via  Custom ConvEncoder) with a 15-dimensional spatial telemetry vector (coordinates, threat assessment, AI perception, and opponent history).
 - **Emergent Tactical Planning**: Discovers dynamic cover usage, line-of-sight breaking, and evasion through latent imagination rollouts.
 - **Low Latency Damage Interrupt**: Micro-interval damage polling detects bullet impacts in real time, waking the agent instantly for immediate evasive reactions.
-- **Exploration & Curriculum**: Incorporates Random Network Distillation (RND) intrinsic curiosity with an automated win-rate-driven step delay curriculum.
-- **Sub-20ms Inference**: PyTorch AMP GPU inference communicating asynchronously with UE5 over UnrealCV TCP sockets and ```mmap```.
+- **Exploration & Curriculum**: Incorporates Random Network Distillation intrinsic curiosity with an automated win-rate-driven step delay curriculum.
+- **Sub-20ms Inference**: PyTorch AMP GPU inference communicating asynchronously with UE5 over UnrealCV TCP sockets and ```mmap``` and ```lit_shared``` shared memory system to produce almost **0 ms** data streaming for training or inferencing.
 
 ---
 
