@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+npc-brain-env/
+ENV/
+
+# Weights, checkpoints, and models (large binaries)
+checkpoints/
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# WandB and logs
+wandb/
+logs/
+outputs/
+
+# Large third-party clones & raw captures
+gaussian-splatting/
+spatial/map_captures*
+spatial/processed*
+spatial/undistorted*
+*.png
+*.jpg
+*.jpeg
+temp_frame.png
+debug_frame.png
+debug.py
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
