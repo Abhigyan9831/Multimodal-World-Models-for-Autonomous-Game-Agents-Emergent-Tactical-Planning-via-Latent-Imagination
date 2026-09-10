@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from dreamerv3.config import DreamerConfig
 
 
-# ─── CNN ENCODER ─────────────────────────────────────────────────────────────
+
 class ConvEncoder(nn.Module):
     """
     128x128 RGB → 512-dim embedding.
@@ -14,7 +14,7 @@ class ConvEncoder(nn.Module):
     """
     def __init__(self, config: DreamerConfig):
         super().__init__()
-        C = config.img_channels  # 3
+        C = config.img_channels  
 
         self.convs = nn.Sequential(
             # (B, 3, 128, 128) → (B, 32, 62, 62)
@@ -53,7 +53,7 @@ class RSSM(nn.Module):
         self.deter_dim = config.deter_dim
         self.stoch_dim = config.stoch_dim * config.stoch_classes
 
-        # GRU for deterministic state
+        
         self.gru = nn.GRUCell(
             input_size  = config.hidden_dim,
             hidden_size = config.deter_dim
@@ -66,7 +66,7 @@ class RSSM(nn.Module):
             nn.SiLU()
         )
 
-        # Prior: deter → stoch (imagination)
+        # (imagination)
         self.prior_net = nn.Sequential(
             nn.Linear(config.deter_dim, config.hidden_dim),
             nn.LayerNorm(config.hidden_dim),
@@ -74,7 +74,7 @@ class RSSM(nn.Module):
             nn.Linear(config.hidden_dim, config.stoch_dim * config.stoch_classes)
         )
 
-        # Posterior: deter + obs → stoch (real experience)
+        #  (real experience)
         self.posterior_net = nn.Sequential(
             nn.Linear(config.deter_dim + config.obs_dim, config.hidden_dim),
             nn.LayerNorm(config.hidden_dim),
@@ -82,7 +82,7 @@ class RSSM(nn.Module):
             nn.Linear(config.hidden_dim, config.stoch_dim * config.stoch_classes)
         )
 
-        # Imagination obs proxy: stoch → obs_dim (used in imagine() to avoid zeros)
+        # (used in imagine() to avoid zeros)
         self.stoch_to_obs = nn.Linear(self.stoch_dim, config.obs_dim)
 
     def initial_state(self, batch_size, device):

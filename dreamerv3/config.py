@@ -2,17 +2,17 @@ from dataclasses import dataclass
 
 @dataclass
 class DreamerConfig:
-    # ── Image input ──────────────────────────────────────────────────
+    
     img_channels: int = 3
     img_height:   int = 128
     img_width:    int = 128
-    cnn_embed_dim: int = 512      # ConvEncoder output dim
+    cnn_embed_dim: int = 512      
 
-    # ── Observation ──────────────────────────────────────────────────
+    
     vector_obs_dim: int = 15      # 3 player + 3 npc + 4 AI perception + 1 threat + 4 opponent history
     obs_dim:        int = 527     # 512 CNN + 15 vector
 
-    # ── Actions ──────────────────────────────────────────────────────
+    
     act_dim: int = 6              # F, B, L, R, Stay, Jump
 
     # ── World Model ──────────────────────────────────────────────────
@@ -22,17 +22,17 @@ class DreamerConfig:
     hidden_dim:     int = 256
     num_layers:     int = 2
 
-    # ── Training ─────────────────────────────────────────────────────
+    
     batch_size:           int   = 16
     seq_len:              int   = 16
     lr:                   float = 3e-4
     grad_clip:            float = 100.0
     imagination_horizon:  int   = 15
 
-    # ── Memory ───────────────────────────────────────────────────────
+    
     replay_capacity: int = 100_000
 
-    # ── Logging ──────────────────────────────────────────────────────
+    
     log_every:  int = 10
     save_every: int = 100
     checkpoint_dir: str = r"E:\NPC_Brain\checkpoints"

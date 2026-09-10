@@ -15,7 +15,7 @@ class DreamerTrainer:
 
         self.model = DreamerV3(config).to(device)
 
-        # ── World optimizer: encoder + RSSM + reward decoder (joint) ──
+        # World optimizer: encoder + RSSM + reward decoder 
         self.world_optimizer = torch.optim.Adam(
             list(self.model.encoder.parameters()) +
             list(self.model.rssm.parameters()) +
@@ -112,7 +112,7 @@ class DreamerTrainer:
 
     def train_actor_critic(self, img_b, vec_b, actions, rewards):
         """Train Actor + Critic using imagined rollouts from the first step of each batch."""
-        img_b = img_b[:, 0].to(self.device)   # (B, 3, 128, 128) — first timestep
+        img_b = img_b[:, 0].to(self.device)   # (B, 3, 128, 128) first timestep
         vec_b = vec_b[:, 0].to(self.device)   # (B, 10)
         B     = img_b.shape[0]
 
@@ -232,4 +232,4 @@ if __name__ == "__main__":
     print(f"World loss: {wm['world_model_loss']:.4f}  KL: {wm['kl_divergence']:.4f}")
     print(f"Actor loss: {ac['actor_loss']:.4f}  Critic: {ac['critic_loss']:.4f}")
     print(f"VRAM: {torch.cuda.memory_allocated()/1e9:.2f} GB")
-    print("\n Trainer validation PASSED!")
+    print("\n Trainer SUCCESS!")
