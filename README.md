@@ -2,6 +2,16 @@
 
 An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **DreamerV3** with **Unreal Engine 5 (UE5)**. The autonomous agent learns latent environmental dynamics across vision and spatial telemetry, imagining future outcomes purely in latent space to make emergent, real-time tactical decisions without pre-baked waypoints or rigid behavior trees.
 
+## Architecture
+
+
+<p align="center">
+  <img src="Final_NPC_Page.png" width="100%">
+</p>
+
+
+---
+
 ---
 
 ## Key Highlights
@@ -12,16 +22,6 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 - **Low Latency Damage Interrupt**: Micro-interval damage polling detects bullet impacts in real time, waking the agent instantly for immediate evasive reactions.
 - **Exploration & Curriculum**: Incorporates Random Network Distillation (RND) intrinsic curiosity with an automated win-rate-driven step delay curriculum.
 - **Sub-20ms Inference**: PyTorch AMP GPU inference communicating asynchronously with UE5 over UnrealCV TCP sockets.
-
----
-
-## Architecture
-
-
-<p align="center">
-  <img src="Final_NPC_Page.png" width="100%">
-</p>
-
 
 ---
 
