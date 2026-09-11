@@ -2,6 +2,8 @@
 
 An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **DreamerV3** with **Unreal Engine 5 (UE5)**. The autonomous agent learns latent environmental dynamics across vision and spatial telemetry, imagining future outcomes purely in latent space to make emergent, real-time tactical decisions without pre-baked waypoints or rigid behavior trees.
 
+---
+
 ## Architecture
 
 
@@ -12,7 +14,6 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 
 ---
 
----
 
 ## Key Highlights
 
