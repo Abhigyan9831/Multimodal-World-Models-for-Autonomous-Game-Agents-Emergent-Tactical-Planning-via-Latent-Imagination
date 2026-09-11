@@ -17,11 +17,11 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 
 ## 🏗️ System Architecture
 
-```
+
 <p align="center">
-  <img src="" width="100%">
+  <img src="Final_NPC_Page.png" width="100%">
 </p>
-```
+
 
 ---
 
