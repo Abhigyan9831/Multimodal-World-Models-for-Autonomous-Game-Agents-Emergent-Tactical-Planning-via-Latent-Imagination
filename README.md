@@ -18,50 +18,9 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 ## 🏗️ System Architecture
 
 ```
-                          ┌────────────────────────────────────────────────────────┐
-                          │                 Unreal Engine 5 (UE5)                  │
-                          │  • 3D Environment & Physics    • AI Perception / Pawn  │
-                          └───────────▲────────────────────────────────┬───────────┘
-                                      │ Commands (vset moveto)         │ Frame & State (vget/vbp)
-                                      │ ~15-20ms Latency               │ TCP Socket
-                          ┌───────────┴────────────────────────────────▼───────────┐
-                          │               Asynchronous Python Bridge               │
-                          │     UE5Env (Micro-interval Damage Polling & Sync)      │
-                          └───────────▲────────────────────────────────┬───────────┘
-                                      │                                │
-                       Action a_t     │                                │ Visual x_t (128x128x3)
-                      (6 Discrete)    │                                │ Telemetry s_t (15-dim)
-                                      │                                ▼
-┌─────────────────────────────────────┴────────────────────────────────────────────────────────────────────────┐
-│                                       DreamerV3 Agent Architecture                                           │
-│                                                                                                              │
-│  ┌─────────────────────────┐     ┌────────────────────────┐                                                  │
-│  │ 4-Layer Conv2D Encoder  │     │ Telemetry Dense MLP    │                                                  │
-│  │ (Visual Feature Extr.)  │     │ (Spatial & Threat)     │                                                  │
-│  └───────────┬─────────────┘     └───────────┬────────────┘                                                  │
-│              └─────────────────┬─────────────┘                                                               │
-│                                ▼                                                                             │
-│                  Multimodal Representation e_t                                                               │
-│                                │                                                                             │
-│  ┌─────────────────────────────▼──────────────────────────────────────────────────────────────────────────┐  │
-│  │ Recurrent State Space Model (RSSM)                                                                      │  │
-│  │   • Deterministic State: h_t = GRU(h_{t-1}, z_{t-1}, a_{t-1})                                          │  │
-│  │   • Posterior (Observation): q(z_t | h_t, e_t) -> Categorical(32 x 32)                                 │  │
-│  │   • Prior (Imagination):     p(z_t | h_t)      -> Categorical(32 x 32)                                 │  │
-│  └─────────────────────────────┬──────────────────────────────────────────────────────────────────────────┘  │
-│                                │                                                                             │
-│       Latent State s_t = (h_t, z_t)                                                                          │
-│       ┌────────────────────────┼────────────────────────┐                                                    │
-│       ▼                        ▼                        ▼                                                    │
-│ ┌───────────┐          ┌──────────────┐         ┌──────────────┐         ┌─────────────────────────────────┐ │
-│ │  Decoder  │          │    Critic    │         │    Actor     │         │ RND Curiosity Intrinsic Module  │ │
-│ │    x_t    │          │     v(s)     │         │  pi(a | s)   │         │ MSE(Predictor(s), Target(s))    │ │
-│ └───────────┘          └──────────────┘         └───────┬──────┘         └────────────────┬────────────────┘ │
-│                                                         │                                 │                  │
-│                                                         ▼                                 │                  │
-│                                                  Action Selection ◄───────────────────────┘                  │
-│                                                   (Evasion / Move)                                           │
-└──────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+<p align="center">
+  <img src="" width="100%">
+</p>
 ```
 
 ---
