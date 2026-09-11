@@ -4,18 +4,18 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 
 ---
 
-## 🌟 Key Highlights
+## Key Highlights
 
-- **Pure Model-Based RL (DreamerV3)**: Powered by a Recurrent State-Space Model (RSSM) featuring discrete categorical latents ($32 \times 32$) and GRU deterministic transitions.
+- **Pure Model-Based RL (DreamerV3)**: Powered by a Recurrent State-Space Model featuring discrete categorical latents ($32 \times 32$) and GRU deterministic transitions.
 - **Multimodal Perception**: Fuses 128×128 first-person RGB camera feeds (via ConvEncoder) with a 15-dimensional spatial telemetry vector (coordinates, threat assessment, AI perception, and opponent history).
 - **Emergent Tactical Planning**: Discovers dynamic cover usage, line-of-sight breaking, and evasion through latent imagination rollouts.
-- **Zero-Latency Damage Interrupt**: Micro-interval damage polling detects bullet impacts in real time, waking the agent instantly for immediate evasive reactions.
+- **Low Latency Damage Interrupt**: Micro-interval damage polling detects bullet impacts in real time, waking the agent instantly for immediate evasive reactions.
 - **Exploration & Curriculum**: Incorporates Random Network Distillation (RND) intrinsic curiosity with an automated win-rate-driven step delay curriculum.
 - **Sub-20ms Inference**: PyTorch AMP GPU inference communicating asynchronously with UE5 over UnrealCV TCP sockets.
 
 ---
 
-## 🏗️ System Architecture
+## Architecture
 
 
 <p align="center">
@@ -25,7 +25,7 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 NPC_Brain/
@@ -53,13 +53,13 @@ NPC_Brain/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - Python 3.10+
-- Unreal Engine 5 with [UnrealCV](https://unrealcv.org/) plugin enabled
-- NVIDIA GPU with CUDA & PyTorch
+- Unreal Engine 5.6 or above with [UnrealCV](https://unrealcv.org/) plugin enabled
+- NVIDIA GPU RTX 3060 or above with CUDA 11.8 & PyTorch
 
 ### Setup
 
@@ -82,7 +82,7 @@ python train.py
 
 ---
 
-## 📊 Telemetry & Logging
+## Telemetry & Logging
 
 Live training metrics, loss breakdowns, and step-level system latencies stream directly to **Weights & Biases (WandB)**:
 - `Losses/*`: World model ELBO, KL divergence, Actor loss, Critic loss
@@ -91,6 +91,6 @@ Live training metrics, loss breakdowns, and step-level system latencies stream d
 
 ---
 
-## 📜 License
+## License
 
 MIT License. Designed for academic and research explorations in modern Game AI and Model-Based Reinforcement Learning.
