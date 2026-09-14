@@ -17,6 +17,20 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 ---
 
 
+## Demo
+
+
+<p align="center">
+  【Multimodal World Models for Autonomous Game Agents: Emergent Tactical Planning】 (https://www.bilibili.com/video/BV1p8YC67ERg/?share_source=copy_web&vd_source=dd00f33f42630dc8f07207b666bfbd3f)
+</p>
+
+
+
+
+
+---
+
+
 ## Key Highlights
 
 - **Pure Model-Based RL (DreamerV3)**: Powered by a Recurrent State-Space Model featuring discrete categorical latents ($32 \times 32$) and GRU deterministic transitions.
