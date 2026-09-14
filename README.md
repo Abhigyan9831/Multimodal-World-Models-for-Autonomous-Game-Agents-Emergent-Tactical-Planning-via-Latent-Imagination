@@ -19,9 +19,10 @@ An end-to-end Model-Based Reinforcement Learning (MBRL) framework interfacing **
 
 ## Demo
 
-
 <p align="center">
-  【!Multimodal World Models for Autonomous Game Agents: Emergent Tactical Planning 】(thumbnail.png) (https://www.bilibili.com/video/BV1p8YC67ERg/?share_source=copy_web&vd_source=dd00f33f42630dc8f07207b666bfbd3f)
+  <a href="https://www.bilibili.com/video/BV1p8YC67ERg/?share_source=copy_web&vd_source=dd00f33f42630dc8f07207b666bfbd3f">
+    <img src="thumbnail.png" alt="Multimodal World Models for Autonomous Game Agents: Emergent Tactical Planning" width="800">
+  </a>
 </p>
 
 
